@@ -1,0 +1,13 @@
+---
+- name: Install packages on Amazon Linux
+  hosts: amazon_linux
+  become: yes
+  tasks:
+    - name: Install a list of packages
+      yum:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - git
+        - wget
+        - curl
